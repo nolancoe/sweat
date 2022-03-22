@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+        rel="stylesheet">
+    <!--favicon -->
+    <link rel="shortcut icon" href="{%  static 'sweatygames/favicon.ico' %}">
+
+    <!-- Cropperjs -->
+    <link rel="stylesheet" href="{% static 'cropperjs/dist/cropper.min.css' %}">
+    
+    <!--Markdown it -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.3.2/markdown-it.min.js" integrity="sha512-TIDbN32lXOg2Mw1VcnKrQLZgfALryJogWCu/NHWtlMCR1jget+mOwMtdehBBZz2f9PKeK2AQPwVxkbl4u/1H5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/kotlin.min.js" integrity="sha512-myxwQvGRruiLcWjuO7tY30GU6hgBYXl5JazqozzcAPhVzPR1/uYz7NRWOgsC2MOB76MbsA7Iktfz+pi4a0ZE1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/python.min.js" integrity="sha512-K+iprLzatPNHWFqYYCSUempr7jNTJjxRDiwVLFgOiYG8S3CfDJeFnc5o7zgMezy4DQGZEHYUuTJ5EHLZu4UXZg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>hljs.highlightAll();</script>
+
+
+</head>
+
+<body>
+
+{% include 'snippets/base_css.html' %}
+{% include 'snippets/base_js.html' %}
+{% include 'snippets/header.html' %}
+
+<div class="container" id="id_loading_spinner" style="display: none">
+    <div class="d-flex flex-row mx-auto flex-grow-1 justify-content-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<!-- Body -->
+<style type="text/css">
+    .main{
+        min-height: 100vh;
+        height: 100%;
+    }
+</style>
+<div class="main">
+    {% block content %}
+
+    {% endblock content %}
+</div>
+<!-- End Body -->
+
+{% include 'snippets/footer.html' %}
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="{% static 'cropperjs/dist/cropper.min.js' %}"></script>
+
+<script type="text/javascript">
+    function displayLoadingSpinner(isDisplayed){
+        var spinner = document.getElementById("id_loading_spinner")
+        if(isDisplayed){
+            spinner.style.display = "block"
+        }
+        else{
+            spinner.style.display = "none"
+        }
+    }
+</script>
+
+</body>
+
+
+</html>

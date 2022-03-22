@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<style type="text/css">
+
+.maincard{
+    background-image: url('static/sweatygames/snipebgsmall2.png');
+    border: 1px solid #FFC107;
+    border-radius: 10px;
+    height: 400px;
+    width: 711;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    justify-content: start;
+
+    }
+
+.card{
+    background-color: #fcf0c7;
+    border: 1px solid #FFC107;
+    border-radius: 10px;
+    }
+
+.chat-log{
+    background-color: #fcf0c7;
+}
+
+.hometitle{
+    text-align: center;
+    color: #0182be;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 5px white;
+    text-decoration: none;
+}
+
+.btn{
+    background-color: #0182be;
+}
+
+</style>
+
+<div class="container">
+
+    <!-- MEDIUM+ SCREENS -->
+    <div class="main d-none d-md-flex flex-column">
+        <div class="maincard p-4 align-items-center">
+
+            <img src="{% static 'sweatygames/sweatygameslogo1.png' %}" width="400" height="250">
+
+            <a class="btn btn-info d-flex flex-row align-items-start" href="#" target="_blank">
+                <span class="d-flex material-icons pr-2">sports_esports</span>
+                <span class="d-flex">Play</span>
+            </a>
+        </div>
+
+        {% include 'public_chat/snippets/public_chat_room.html' with room_id=room_id %}
+
+
+    </div>
+    <!-- END MEDIUM+ SCREENS -->
+
+    <!-- SMALL SCREENS -->
+    <div class="d-flex d-md-none p-2">
+        <p>This site is not meant to be viewed on a mobile device. Please download the <a href="#">app</a>.</p>
+    </div>
+    <!-- END SMALL SCREENS -->
+</div>
+
+
+{% endblock content %}
